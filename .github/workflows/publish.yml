@@ -2,9 +2,10 @@
 name: Publish
 
 on:  # yamllint disable-line rule:truthy
-  push:
-    tags:
-      - "v*.*.*"
+  # push:
+  #   tags:
+  #     - "v*.*.*"
+  - push
 
 jobs:
   shipyard:
@@ -32,6 +33,7 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-22.04
+    if: false
     steps:
       - uses: actions/checkout@v4
       - uses: softprops/action-gh-release@v1

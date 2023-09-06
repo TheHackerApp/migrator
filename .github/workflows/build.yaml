@@ -1,0 +1,29 @@
+---
+name: Build
+
+on:  # yamllint disable-line rule:truthy
+  - push
+
+jobs:
+  library:
+    name: Library
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+
+      - run: cargo build --release --lib
+
+  binary:
+    name: Binary
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+
+      - run: cargo build --release --bin migrate -F cli
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: migrate
+          path: target/release/migrate

@@ -1,0 +1,2 @@
+[registries.wafflehacks]
+index = "ssh://git@ssh.shipyard.rs/wafflehacks/crate-index.git"

@@ -1,0 +1,37 @@
+---
+name: Publish
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  shipyard:
+    name: Shipyard
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Setup shipyard.rs crate index access over SSH
+        run: |
+          eval $(ssh-agent -s)
+          ssh-add - <<< '${{ secrets.SHIPYARD_SSH_KEY }}'
+
+          mkdir -p ~/.ssh && touch ~/.ssh/known_hosts
+          ssh-keyscan ssh.shipyard.rs >> ~/.ssh/known_hosts
+
+      - name: Login to shipyard.rs
+        run: cargo login --registry wafflehacks ${{ secrets.SHIPYARD_TOKEN }}
+
+      - run: cargo publish
+
+  release:
+    name: Release
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: softprops/action-gh-release@v1
+        with:
+          generate_release_notes: true

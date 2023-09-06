@@ -1,6 +1,7 @@
 use chrono::Utc;
+pub use sqlx::migrate::Migrator;
 use sqlx::{
-    migrate::{AppliedMigration, Migrate, Migration, MigrationType, Migrator},
+    migrate::{AppliedMigration, Migrate, Migration, MigrationType},
     PgConnection, PgPool,
 };
 use std::{

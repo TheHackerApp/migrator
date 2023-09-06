@@ -1,6 +1,10 @@
 [package]
 name = "migrator"
+description = "A simple library for managing database migrations"
 version = "0.1.0"
+license = "MIT"
+homepage = "https://github.com/TheHackerApp/migrator"
+repository = "https://github.com/TheHackerApp/migrator.git"
 edition = "2021"
 publish = ["wafflehacks"]
 

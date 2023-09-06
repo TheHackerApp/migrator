@@ -24,6 +24,8 @@ jobs:
 
       - name: Login to shipyard.rs
         run: cargo login --registry wafflehacks ${{ secrets.SHIPYARD_TOKEN }}
+        env:
+          CARGO_NET_GIT_FETCH_WITH_CLI: "true"
 
       - run: cargo publish
 

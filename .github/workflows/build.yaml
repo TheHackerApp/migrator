@@ -10,7 +10,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: TheHackerApp/setup-rust@main
+        with:
+          ssh-private-key: ${{ secrets.SHIPYARD_SSH_KEY }}
+          token: ${{ secrets.SHIPYARD_TOKEN }}
 
       - run: cargo build --release --lib
 
@@ -19,7 +22,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: TheHackerApp/setup-rust@main
+        with:
+          ssh-private-key: ${{ secrets.SHIPYARD_SSH_KEY }}
+          token: ${{ secrets.SHIPYARD_TOKEN }}
 
       - run: cargo build --release --bin migrate -F cli
 

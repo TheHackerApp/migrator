@@ -19,10 +19,12 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: TheHackerApp/setup-rust@main
         with:
           components: rustfmt
+          ssh-private-key: ${{ secrets.SHIPYARD_SSH_KEY }}
+          token: ${{ secrets.SHIPYARD_TOKEN }}
+
       - run: cargo fmt --all --check
 
   clippy:
@@ -30,9 +32,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: TheHackerApp/setup-rust@main
         with:
           components: clippy
+          ssh-private-key: ${{ secrets.SHIPYARD_SSH_KEY }}
+          token: ${{ secrets.SHIPYARD_TOKEN }}
 
       - run: cargo clippy --all-features -- -D warnings

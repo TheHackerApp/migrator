@@ -778,6 +778,18 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b5e6163cb8c49088c2c36f57875e58ccd8c87c7427f7fbd50ea6710b2f3f2e8f"
 
 [[package]]
+name = "logging"
+version = "0.1.1"
+source = "registry+ssh://git@ssh.shipyard.rs/wafflehacks/crate-index.git"
+checksum = "b7fe2e0cf5094be981ffa92b51ddff0a3209766bc14185c845807a3b27568d27"
+dependencies = [
+ "eyre",
+ "tracing",
+ "tracing-error",
+ "tracing-subscriber",
+]
+
+[[package]]
 name = "matchers"
 version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -803,7 +815,7 @@ checksum = "8f232d6ef707e1956a43342693d2a31e72989554d58299d7a88738cc95b0d35c"
 
 [[package]]
 name = "migrator"
-version = "0.1.2"
+version = "0.1.3"
 dependencies = [
  "chrono",
  "clap",
@@ -811,11 +823,10 @@ dependencies = [
  "dotenvy",
  "eyre",
  "hex",
+ "logging",
  "sqlx",
  "tokio",
  "tracing",
- "tracing-error",
- "tracing-subscriber",
 ]
 
 [[package]]

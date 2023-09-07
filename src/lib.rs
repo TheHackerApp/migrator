@@ -19,15 +19,10 @@ use error::Result;
 
 /// Create a new migration
 #[instrument]
-pub fn add(name: &str) -> Result<()> {
-    let migrations = {
-        let base = Path::new(env!("CARGO_MANIFEST_DIR"));
-        base.join("migrations")
-    };
-
+pub fn add(source: &Path, name: &str) -> Result<()> {
     let name = name.replace(' ', "_");
-    create_file(&migrations, &name, MigrationType::ReversibleUp)?;
-    create_file(&migrations, &name, MigrationType::ReversibleDown)?;
+    create_file(source, &name, MigrationType::ReversibleUp)?;
+    create_file(source, &name, MigrationType::ReversibleDown)?;
 
     Ok(())
 }

@@ -15,7 +15,7 @@ name = "migrate"
 required-features = ["cli"]
 
 [dependencies]
-chrono = "0.4"
+chrono = "0.4.38"
 clap = { version = "4.4", features = ["derive", "env"], optional = true }
 color-eyre = { version = "0.6", optional = true }
 dotenvy = { version = "0.15", optional = true }

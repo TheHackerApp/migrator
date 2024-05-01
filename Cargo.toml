@@ -18,7 +18,7 @@ required-features = ["cli"]
 chrono = "0.4"
 clap = { version = "4.4", features = ["derive", "env"], optional = true }
 color-eyre = { version = "0.6", optional = true }
-dotenvy = { version = "0.15", optional = true }
+dotenvy = { version = "0.15.7", optional = true }
 eyre = { version = "0.6", optional = true }
 hex = "0.4"
 logging = { version = "0.1", registry = "wafflehacks", optional = true }

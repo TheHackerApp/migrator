@@ -21,7 +21,7 @@ color-eyre = { version = "0.6", optional = true }
 dotenvy = { version = "0.15", optional = true }
 eyre = { version = "0.6", optional = true }
 hex = "0.4"
-logging = { version = "0.1", registry = "wafflehacks", optional = true }
+logging = { version = "0.3", registry = "wafflehacks", optional = true }
 sqlx = { version = "0.7", default-features = false, features = ["migrate", "postgres", "runtime-tokio", "tls-rustls"] }
 tokio = { version = "1", features = ["macros", "rt", "rt-multi-thread"], optional = true }
 tracing = "0.1"

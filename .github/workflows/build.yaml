@@ -29,7 +29,7 @@ jobs:
 
       - run: cargo build --release --bin migrate -F cli
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: migrate
           path: target/release/migrate

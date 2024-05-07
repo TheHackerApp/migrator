@@ -1,0 +1,13 @@
+[workspace]
+allow_dirty = false
+changelog_update = false
+git_release_enable = true
+git_release_draft = false
+git_tag_enable = true
+pr_draft = false
+pr_labels = ["release"]
+publish = true
+semver_check = true
+
+[[package]]
+name = "migrator"

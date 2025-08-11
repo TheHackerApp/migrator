@@ -9,7 +9,7 @@ jobs:
     name: Library
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: TheHackerApp/setup-rust@main
         with:
           ssh-private-key: ${{ secrets.SHIPYARD_SSH_KEY }}
@@ -21,7 +21,7 @@ jobs:
     name: Binary
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: TheHackerApp/setup-rust@main
         with:
           ssh-private-key: ${{ secrets.SHIPYARD_SSH_KEY }}

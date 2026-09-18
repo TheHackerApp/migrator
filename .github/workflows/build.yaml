@@ -7,7 +7,7 @@ on:  # yamllint disable-line rule:truthy
 jobs:
   library:
     name: Library
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@v4
       - uses: TheHackerApp/setup-rust@main
@@ -19,7 +19,7 @@ jobs:
 
   binary:
     name: Binary
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@v4
       - uses: TheHackerApp/setup-rust@main
